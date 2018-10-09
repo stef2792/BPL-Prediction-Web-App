@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Groapa.Domain.DataService;
 using Groapa.Domain.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,9 +26,11 @@ namespace Groapa.Web
         {
             services.AddDbContext<GroapaContext>( cfg =>
             {
-                cfg.UseSqlServer(Configuration.GetConnectionString("WorkConnectionString"));
+                cfg.UseSqlServer(Configuration.GetConnectionString("StefConnectionString"));
             });
             services.AddMvc();
+
+            services.AddTransient<MatchesSeeder>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

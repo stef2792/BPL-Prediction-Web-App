@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Groapa.Domain.DataService;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace Groapa.Web
@@ -14,7 +16,22 @@ namespace Groapa.Web
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            var host = BuildWebHost(args);
+
+            RunSeed(host);
+
+            host.Run();
+        }
+
+        private static void RunSeed(IWebHost host)
+        {
+            var scopeFactory = host.Services.GetService<IServiceScopeFactory>();
+
+            using (var scope = scopeFactory.CreateScope())
+            {
+                var seeder = host.Services.GetService<MatchesSeeder>();
+                seeder.Seed();
+            }
         }
 
         public static IWebHost BuildWebHost(string[] args) =>

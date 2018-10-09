@@ -11,8 +11,9 @@ namespace Groapa.Domain.Models
         {
 
         }
-        DbSet<MatchSqlView> Matches { get; set; }
-        DbSet<MatchDetailsSqlView> MatchDetails { get; set; }
+
+        public DbSet<MatchSqlView> Matches { get; set; }
+        public DbSet<MatchDetailsSqlView> MatchDetails { get; set; }
 
     }
 }

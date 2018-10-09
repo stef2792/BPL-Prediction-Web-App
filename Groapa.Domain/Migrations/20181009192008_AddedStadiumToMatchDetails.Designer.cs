@@ -11,9 +11,10 @@ using System;
 namespace Groapa.Domain.Migrations
 {
     [DbContext(typeof(GroapaContext))]
-    partial class GroapaContextModelSnapshot : ModelSnapshot
+    [Migration("20181009192008_AddedStadiumToMatchDetails")]
+    partial class AddedStadiumToMatchDetails
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Groapa.Domain.Models
+namespace Groapa.Domain.Models.ViewModels
 {
-    [Table("MatchDetails")]
-    public class MatchDetailsSqlView
+    public class MatchInsertViewModel
     {
-        [Key]
-        public int MatchID { get; set; }
+        public string Season { get; set; }
+        public int? Round { get; set; }
+        public DateTime Date { get; set; }
+        public string HomeTeam { get; set; }
+        public string AwayTeam { get; set; }
+        public int? HomeScore { get; set; }
+        public int? AwayScore { get; set; }
         public int? HTHome { get; set; }
         public int? HTAway { get; set; }
         public string Referee { get; set; }
@@ -31,6 +33,5 @@ namespace Groapa.Domain.Models
         public decimal? BWH { get; set; }
         public decimal? BWD { get; set; }
         public decimal? BWA { get; set; }
-
     }
 }
