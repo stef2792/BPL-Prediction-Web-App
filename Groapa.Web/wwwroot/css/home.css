@@ -1,0 +1,48 @@
+﻿#home{
+    position:absolute;
+    width:100%;
+}
+
+.title {
+    top: 107px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.titleBox {
+    border-radius:50%;
+    top: -200px;
+    opacity: 0.8;
+    width: 320px;
+    position: relative;
+    background-color: springgreen;
+    margin: 0 auto;
+    height: 320px;
+}
+
+.backgroundPic {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+.bplogo {
+    height: 300px;
+}
+
+
+.textP {
+    opacity:0.9;
+    height:100px;
+    position: relative;
+    text-align: center;
+    top: -150px;
+    color: white;
+    font-family: "Arial Black", Gadget, sans-serif;
+    background-color: #35307b;
+    margin: 0 auto;
+    padding: 15px;
+}

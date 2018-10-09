@@ -1,0 +1,67 @@
+﻿
+.container {
+    margin: 0 auto;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background-color: #f2f2f2;
+    height: 100%;
+}
+
+.coloane {
+    overflow: hidden;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
+    background-color: #50fd55;
+    height: 100%;
+    margin: 4%;
+}
+
+.match{
+    background-color:white;
+    margin: 2px;
+    padding: 1px;
+    text-align: center;
+}
+
+.stadion{
+    color:white;
+    background-color:darkblue;
+}
+
+.matchDate{
+    color:white;
+    background-color:black
+}
+
+.matchDropdown{
+    margin: 5px;
+    height: 15px;
+}
+
+.scoreBox{
+    background-color:lightgray;
+    margin: 5px 4%;
+    height:20px;
+    color: black;
+}
+
+table, th, td {
+    background-color: #f2f2f2;
+    margin: 0 auto;
+    width: 90%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: grey;
+}
+
+th, td {
+    padding: 2px;
+}
+
+table td:nth-child(even) {
+    background-color: lightgrey;
+}
