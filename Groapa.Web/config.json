@@ -1,6 +1,0 @@
-﻿{
-  "ConnectionStrings": {
-    "StefConnectionString": "server=STEF;Database=Groapa_New;Integrated Security=True;",
-    "WorkConnectionString": "Data Source=RO-SMITEA-WIN; Initial Catalog=Groapa; User Id=sa;Password=suvoda01!; MultipleActiveResultSets=True;"
-  }
-}
