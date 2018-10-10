@@ -13,6 +13,6 @@ namespace Groapa.Domain.Models
     {
         public int SelectedRound { get; set; }
         public List<SelectListItem> RoundSelectList { get; set; }
-        public IEnumerable<MatchViewModel> Matches { get; set; }
+        public IQueryable<MatchSqlView> Matches { get; set; }
     }
 }

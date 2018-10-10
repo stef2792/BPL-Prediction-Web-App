@@ -29,7 +29,7 @@ namespace Groapa.Web
 
             using (var scope = scopeFactory.CreateScope())
             {
-                var seeder = host.Services.GetService<MatchesSeeder>();
+                var seeder = scope.ServiceProvider.GetService<MatchesSeeder>();
                 seeder.Seed();
             }
         }

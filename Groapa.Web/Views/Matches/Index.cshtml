@@ -18,8 +18,7 @@
                 @foreach(var match in Model.Matches)
                 {
                 <div class="match">
-                    <div class="matchDate">@match.MatchDate.ToString("HH:mm dddd, dd MMM", CultureInfo.CreateSpecificCulture("en-US"))</div>
-                    <div class="stadion">@match.Stadion</div>
+                    <div class="matchDate">@match.Date.ToString("HH:mm dddd, dd MMM", CultureInfo.CreateSpecificCulture("en-US"))</div>
                     <div class="row">
                         <div class="col-md-4">@match.HomeTeam</div>
                         <div class="col-md-1 scoreBox">@match.HomeScore</div>

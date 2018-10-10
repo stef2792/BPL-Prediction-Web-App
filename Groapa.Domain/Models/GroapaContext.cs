@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Groapa.Domain.Models
 {
-    public class GroapaContext :DbContext
+    public class GroapaContext :IdentityDbContext<UserSqlView>
     {
         public GroapaContext(DbContextOptions<GroapaContext> options):base(options)
         {

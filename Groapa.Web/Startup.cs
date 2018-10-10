@@ -6,6 +6,7 @@ using Groapa.Domain.DataService;
 using Groapa.Domain.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,13 +25,22 @@ namespace Groapa.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddIdentity<UserSqlView, IdentityRole>( cfg =>
+            {
+                cfg.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<GroapaContext>();
+
             services.AddDbContext<GroapaContext>( cfg =>
             {
-                cfg.UseSqlServer(Configuration.GetConnectionString("StefConnectionString"));
+                cfg.UseSqlServer(Configuration.GetConnectionString("WorkConnectionString"));
             });
+
             services.AddMvc();
 
             services.AddTransient<MatchesSeeder>();
+
+            services.AddScoped<IMatchesRepository, MatchesRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +58,7 @@ namespace Groapa.Web
 
             app.UseStaticFiles();
 
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

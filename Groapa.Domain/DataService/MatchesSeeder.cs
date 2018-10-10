@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,13 +27,13 @@ namespace Groapa.Domain.DataService
             groapaContext.Database.EnsureCreated();
             if (!groapaContext.Matches.Any())
             {
-                var filePath = Path.Combine(hosting.ContentRootPath,"Data/matches.json");
+                var filePath = Path.Combine(hosting.ContentRootPath,"../Groapa.Domain/Data/MatchLoad.json");
                 var json = File.ReadAllText(filePath);
                 var matches = JsonConvert.DeserializeObject<IEnumerable<MatchInsertViewModel>>(json)
                                          .Select(x => new MatchSqlView {
                                              Season = x.Season,
                                              Round = x.Round,
-                                             Date = x.Date,
+                                             Date = DateTime.Parse(x.Date,new CultureInfo("fr-FR",true)),
                                              HomeTeam = x.HomeTeam,
                                              AwayTeam = x.AwayTeam,
                                              HomeScore = x.HomeScore,
