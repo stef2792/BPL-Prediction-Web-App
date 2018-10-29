@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Groapa.Domain.DataService;
+﻿using Groapa.Domain.DataService;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 namespace Groapa.Web
 {
@@ -30,7 +24,7 @@ namespace Groapa.Web
             using (var scope = scopeFactory.CreateScope())
             {
                 var seeder = scope.ServiceProvider.GetService<MatchesSeeder>();
-                seeder.Seed();
+                seeder.Seed().Wait();
             }
         }
 
